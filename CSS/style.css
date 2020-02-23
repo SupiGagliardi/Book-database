@@ -622,6 +622,12 @@ body {
   min-height: 400px;
 }
 
+@media (min-width: 768px) {
+  .book-database .book-list .books {
+    min-height: 920px;
+  }
+}
+
 @media (min-width: 1280px) {
   .book-database .book-list .books {
     min-height: 475px;
@@ -645,6 +651,13 @@ body {
 @media (min-width: 768px) {
   .book-database .book-list .books .empty-list img {
     height: 190px;
+  }
+}
+
+@media (min-height: 1080px) and (min-width: 1280px) {
+  .book-database .book-list .books .empty-list img {
+    margin-top: 150px;
+    height: 250px;
   }
 }
 

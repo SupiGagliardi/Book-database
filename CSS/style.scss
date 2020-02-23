@@ -471,6 +471,10 @@
             background-color: #F7F7F7;
             min-height: 400px;
 
+            @include tablet {
+                min-height: 920px;
+            }
+
             @include desktop {
                 min-height: 475px;
             }
@@ -486,6 +490,11 @@
                     margin-top: 100px;
                     @include tablet {
                         height: 190px;
+                    }
+
+                    @include vertical {
+                        margin-top: 150px;
+                        height: 250px;
                     }
                 }
             }
