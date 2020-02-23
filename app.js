@@ -1,11 +1,38 @@
+
+
+
 const allInputs = document.querySelectorAll('input');
 const addBookBtn = document.querySelector('#addbook-btn');
 
 
 const bookList = document.querySelector('.books');
 
+// let library = [];
 
-let library = [];
+function loadStorage () {
+
+    let bookStorage = JSON.parse(localStorage.getItem('Library storage'))
+
+    if (bookStorage === null) {
+        library = [];
+    } else {
+        library = bookStorage;
+        displayNewBook();
+    };
+};
+
+loadStorage();
+
+
+
+function bookStorage () {
+
+    localStorage.setItem('Library storage', JSON.stringify(library));
+
+}
+
+
+
 
 function Book(bookName, author, genre, pages) {
     this.bookName = bookName;
@@ -18,6 +45,8 @@ function Book(bookName, author, genre, pages) {
 function addBook(bookName, author, genre, pages) {
     let newBook = new Book(bookName, author, genre, pages);
     library.push(newBook);
+
+    bookStorage();
 
     allInputs.forEach((input) => {
         input.value = '';
@@ -81,8 +110,6 @@ function displayNewBook() {
         deleteLi.setAttribute('data-index', `${library.indexOf(book)}`);
         deleteLi.innerHTML = `<img src="icons/delete.svg" alt="delete icon">`
 
-        const bookStates = document.querySelectorAll('.bookstate-li');
-
         bookStateLi.addEventListener('click', () => {
 
             if (book.read === false) {
@@ -107,7 +134,10 @@ function displayNewBook() {
         })
     });
 
+    bookStorage();
+
 };
+
 
 
 
@@ -126,6 +156,9 @@ addBookBtn.addEventListener('click', () => {
     addBook(bookName.value, bookAuthor.value, bookGenre.value, bookPages.value);
     displayNewBook();
 });
+
+
+
 
 
 
