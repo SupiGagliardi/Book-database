@@ -91,7 +91,11 @@
                   text-decoration: none;
                   color: #323232;
                   font-weight: 300;
-                  font-size: 30px;
+                  font-size: 25px;
+
+                  @include vertical {
+                      font-size: 28px;
+                  }
               }
           }
       }
