@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800&display=swap" rel="stylesheet">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="landing-page">
+        <header>
+            <img src="icons/BookDB.svg" alt="BookDB logo">
+            <div><a href="#">About Us</a></div>
+        </header>
+        <div class="landing-info">
+            <h1>Keep track of what you read</h1>
+            <p>Your book database</p>
+        </div>
+        <div class="landing-illustration">
+            <img src="icons/background.svg" alt="Illustration">
+        </div>
+        <div class="cta-btn">
+            <a href="#book-section">
+                <button>START TRACKING</button>
+            </a>
+        </div>
+        <div class="scroll">
+            <img src="icons/scroll.svg" alt="scroll indicator">
+        </div>
+    </div>
+    <div class="book-database" id="book-section">
+        <div class="database-header">
+            <img src="icons/Book.svg" alt="Book illustration">
+            <h2>Book Database</h2>
+        </div>
+        <div class="add-book-options">
+
+        </div>
+        <form class="add-book-options" onsubmit="displayBook(); return false;">
+            <div class="book-name">
+                <label for="book-name">Name:</label>
+                <input type="text" id="book-name" placeholder="Book's name..." required>
+            </div>
+            <div class="book-author">
+                <label for="book-name">Author:</label>
+                <input type="text" id="book-author" placeholder="Author's name..." required>
+            </div>
+            <div class="book-genre">
+                <label for="book-name">Genre:</label>
+                <input type="text" id="book-genre" placeholder="Book's genre..." required>
+            </div>
+            <div class="book-pages">
+                <label for="book-pages">Pages:</label>
+                <input type="number" id="book-pages" placeholder="--" required>
+            </div>
+            <div class="addbook-Btn">
+                <button type="submit" id="addbook-btn">Add Book</button>
+            </div>
+        </form>
+        <div class="book-list">
+            <div class="book-info">
+                <ul>
+                    <li class="name-li">Book</li>
+                    <li class="author-li">Author</li>
+                    <li class="genre-li">Genre</li>
+                    <li class="pages-li">Pages</li>
+                    <li class="read-li">Read</li>
+                </ul>
+            </div>
+            <div class="books">
+                <div class="empty-list">
+                    <img src="icons/empty-list.svg" alt="Empty list logo">
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="https://github.com/SupiGagliardi?tab=repositories" target="_blank">
+                <img src="icons/github.svg" alt="Github logo">
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,609 @@
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content
+    }
+};
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content
+    }
+};
+
+@mixin vertical {
+    @media (min-height: 1080px) and (min-width: 1280px){
+        @content
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  html {
+      scroll-behavior: smooth;
+  }
+
+  html, body {
+      height: 100%;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100% auto;
+  }
+  
+  .landing-page {
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto auto auto 50px;
+
+    @include desktop {
+        grid-template-columns: 50% auto;
+        grid-template-rows: 50px auto auto 50px;
+        grid-template-areas: 
+        'header header'
+        'landing-info landing-image'
+        'cta landing-image'
+        'scroll scroll';
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f9f9f9;
+      padding: 10px;
+      @include desktop {
+        grid-area: header;
+      }
+
+      @include desktop {
+          justify-content: space-between;
+      }
+  
+      img {
+          height: 20px;
+
+          @include tablet {
+              height: 25px;
+          }
+
+          @include desktop {
+              height: 35px;
+              margin-left: 100px;
+          }
+      }
+
+      div {
+          display: none;
+
+          @include desktop {
+              display: block;
+              margin-right: 100px;
+
+              a {
+                  text-decoration: none;
+                  color: #323232;
+                  font-weight: 300;
+                  font-size: 30px;
+              }
+          }
+      }
+    }
+  
+    .landing-info {
+      text-align: center;
+      margin: 0 auto 0 auto;
+      width: 90%;
+      flex-basis: 25%;
+      @include desktop {
+        width: 100%;
+        grid-area: landing-info;
+        align-self: center;
+        text-align: left;
+    }
+
+
+  
+      h1 {
+        font-size: 40px;
+        font-weight: bold;
+        margin: 0 auto 0 auto;
+        @include tablet {
+            font-size: 50px;
+            width: 60%;
+            margin: 20px auto 0 auto;
+        }
+        
+        @include desktop {
+            font-size: 4.2em;
+            width: 65%;
+            margin-left: 100px;
+
+        }
+
+        @include vertical {
+            font-size: 5em;
+        }
+      }
+  
+      p {
+        font-size: 27px;
+        font-weight: 300;
+        margin-top: 0.5em;
+
+        @include tablet {
+            font-size: 33px;
+        }
+
+        @include desktop {
+            font-size: 2.5em;
+            margin-left: 100px;
+        }
+
+        @include vertical {
+            font-size: 2.9em;
+        }
+      }
+    }
+  
+    .landing-illustration {
+        @include desktop {
+            align-self: center;
+            grid-area: landing-image;
+        }
+
+        img {
+            max-height: 300px;
+            width: 90%;
+            display: block;
+            margin: 0 auto 0 auto;
+
+            @include desktop {
+                max-height: 700px;
+            }
+
+            @include vertical {
+                max-height: 1200px;
+            }
+
+        }
+    }
+  
+    .cta-btn {
+      text-align: center;
+      flex-basis: 15%;
+     @include desktop {
+        grid-area: cta;
+        text-align: left;
+        margin-left: 100px;
+     }
+
+
+  
+      button {
+        text-decoration: none;
+        padding: 1em 1.7em 1em 1.7em;
+        background-color: #e94f4f;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 0 auto 0 auto;
+        cursor: pointer;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 800;
+
+        a {
+            text-decoration: none;
+        }
+
+        @include tablet {
+            padding: 1.3em 2em 1.3em 2em;
+            font-size: 17px;
+        }
+
+        @include desktop {
+            padding: 1.5em 2.2em 1.5em 2.2em;
+        }
+
+        @include vertical {
+            padding: 1.2em 4.3em;
+            font-size: 25px;
+        }
+      }
+    }
+
+    .scroll {
+        padding: 15px;
+        background-color: #515151;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include desktop {
+            grid-area: scroll;
+        }
+        img {
+
+            @include tablet {
+                height: 20px;
+            }
+        }
+    }
+  }
+
+  .book-database {
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, auto);
+
+    .database-header {
+        background-color: #e9e9e9;
+        padding: 22px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        @include tablet {
+            padding: 2.2em;
+        }
+
+        @include desktop {
+            padding: 3.5em;
+        }
+
+        h2 {
+            margin-left: 20px;
+            font-size: 27px;
+            font-weight: 300;
+
+            @include tablet {
+                font-size: 2em;
+            }
+
+            @include desktop {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .add-book-options {
+        padding: 3px 0 20px 0;
+        display: grid;
+        background-color: #FFF;
+        font-size: 20px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: 
+            'bookName bookName .'
+            'bookAuthor bookAuthor .'
+            'bookGenre bookGenre .'
+            'bookPages addBookBtn .' 
+        ;
+        justify-content: center;
+
+        @include tablet {
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: repeat(2, auto);
+            grid-template-areas: 
+                'bookName bookName bookAuthor bookAuthor'
+                'bookGenre bookGenre bookPages addBookBtn'
+            ;
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: repeat(1, 1fr);
+            grid-template-areas: 
+                'bookName bookAuthor bookGenre bookPages addBookBtn'
+            ;
+        };
+
+        @include vertical {
+            background-color: #F7F7F7;
+            margin: 0;
+            font-size: 21px;
+        };
+        div {
+            font-weight: 400;
+            padding: 9px 0 9px 0;
+
+            @include tablet {
+                padding: 9px 20px 9px 20px;
+            }
+
+            @include vertical {
+                background-color: #FFFF;
+                padding: 35px 25px 25px 25px;
+                border-radius: 5px;
+            }
+        }
+
+        div input::placeholder {
+            font-size: 17px;
+
+            @include vertical {
+                font-size: 20px;
+            }
+        }
+
+        input {
+            background-color: #F6F6F6;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-left: 10px;
+
+            @include tablet {
+                padding: 15px;
+            }
+
+            @include vertical {
+                font-size: 22px;
+            }
+        }
+        .book-name {
+            grid-area: bookName;
+        }
+        .book-author {
+            grid-area: bookAuthor;
+            input {
+                margin-left: 3px;
+            }
+        }
+        .book-genre {
+            grid-area: bookGenre;
+        }
+        .book-pages {
+            width: fit-content;
+            grid-area: bookPages;
+            display: inline-block;
+            input[type=number] {
+                text-align: center;
+                width: 64px;
+            }
+        }
+        .addbook-Btn {
+            grid-area: addBookBtn;
+            
+            button {
+                width: 100%;
+                border: none;
+                color: #FFF;
+                background-color: #6159E5;
+                padding: 10px;
+                border-radius: 3px;
+                font-size: 15px;
+                cursor: pointer;
+                
+                @include tablet {
+                    font-weight: 600;
+                }
+
+                @include vertical {
+                    font-size: 17px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    .book-list {
+
+        font-size: 18px;
+        .book-info {
+            padding: 20px 0 10px 0;
+            background-color: #F7F7F7;
+
+            @include tablet {
+                padding-bottom: 25px;
+            }
+            ul {
+                display: grid;
+                grid-template-columns: 2fr 2fr 1fr;
+                grid-template-rows: repeat(3, 1fr);
+
+                grid-template-areas: 
+                'name genre .'
+                '. . read'
+                'author pages .';
+
+                @include tablet {
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+    
+                    grid-template-areas: 
+                    'name author genre pages read';
+
+                }
+
+                @include vertical {
+                    width: 1500px;
+                    margin: 0 auto;
+                    font-size: 20px;
+                }
+
+
+                li {
+                    justify-self: center;
+                    width: fit-content;
+                    text-decoration: none;
+                    list-style: none;
+                    color: #808080;
+                }
+
+                .name-li {
+                    grid-area: name;
+                }
+                .author-li {
+                    grid-area: author;
+                }
+                .genre-li {
+                    grid-area: genre;
+                }
+                .pages-li {
+                    grid-area: pages;
+                }
+                .read-li {
+                    grid-area: read;
+                    padding-right: 20px;
+                    @include tablet {
+                        padding-right: 25px;
+                    }
+                }
+
+            }
+        }
+
+        .books {
+            background-color: #F7F7F7;
+            min-height: 400px;
+
+            @include desktop {
+                min-height: 475px;
+            }
+
+            @include vertical {
+                min-height: 650px;
+            }
+            
+            .empty-list {
+                text-align: center;
+
+                img {
+                    margin-top: 100px;
+                    @include tablet {
+                        height: 190px;
+                    }
+                }
+            }
+
+        .book {
+            min-height: 90px;
+            width: 100%;
+            display: flex;
+            background-color: #E9E9E9;
+            padding: 20px 0 20px 0;
+            margin-bottom: 15px;
+            color: #565656;
+
+            @include tablet {
+                padding: 10px 0 10px 0;
+            }
+
+            @include vertical {
+                width: 1700px;
+                margin:  0 auto 20px auto;
+                border-radius: 10px;
+            }
+
+            ul {
+                position: relative;
+                font-size: 19px;
+                list-style: none;
+                display: grid;
+                width: 100%;
+                grid-gap: 5px;
+                grid-template-columns: 2fr 2fr 1fr;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas: 
+                'book genre bookstate'
+                'author pages deletebtn';
+
+                @include tablet {
+                    font-size: 22px;
+                    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+                    grid-template-rows: 1fr;
+                    grid-template-areas: 
+                    'book author genre pages bookstate deletebtn';
+                }
+
+                @include vertical {
+                    width: 1500px;
+                    margin: 0 auto;
+                }
+
+                li {
+                    align-self: center;
+                    justify-self: center;
+                    text-align: center;
+
+                }
+
+                .bookname-li {
+                    grid-area: book;
+                    max-width: 200px;
+                    text-align: center;
+                }
+                .authorname-li {
+                    grid-area: author;
+                }
+                .genrename-li {
+                    grid-area: genre;
+                }
+                .bookpages-li {
+                    grid-area: pages;
+                }
+                .bookstate-li {
+                    grid-area: bookstate;
+                    justify-self: center;
+                    padding-right: 20px;
+                    @include tablet {
+                        justify-self: right;
+                        padding-right: 0;
+                    }
+                    img {
+                        height: 22px;
+                        cursor: pointer;
+                    }
+
+                }
+                .deletebtn-li {
+                    grid-area: deletebtn;
+                    padding-right: 20px;
+                    @include tablet {
+                        padding-right: 0;
+                    }
+                    img {
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+
+
+        }
+        }
+
+    }
+
+    footer {
+        height: 45px;
+        background-color: #515151;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        a {
+            height: fit-content;
+            margin-top: 5px;
+        }
+        img {
+            height: 25px;
+
+            @include tablet {
+                height: 35px;
+            }
+        }
+    }
+  }
+  
